@@ -13,4 +13,4 @@ Both indexer routes run on Vercel's Cron Job functionality.
 The API is how the default client accesses the Farcaster Protocol. It uses Warpcast's API to start, but I'll update it to use hubs soon. If you want to build your own client from scratch, you can just use the API.
 
 To-do:
-[ ] - decide on a schema for users. Should we just mimic Merkle's? Prisma only allows for flat objects on a table—how should we get around this?
+- decide on a schema for users. Should we just mimic Merkle's? Prisma only allows for flat objects on a table—how should we get around this?
