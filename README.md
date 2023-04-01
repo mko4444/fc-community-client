@@ -1,3 +1,5 @@
+The purpose of this repo is to make it trivially easy to create a Farcaster client for a given NFT community.
+
 [Docs in progress! Most of this is not live.]
 
 ### Indexer
