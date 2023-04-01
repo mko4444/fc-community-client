@@ -1,0 +1,103 @@
+// Variables
+$font-family: --apple-system, sans-serif;
+$font-size-base: 16px;
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$bg-color: white;
+$text-color: #2c3e50;
+
+// Mixins
+@mixin transition($properties, $time: 300ms, $timing-function: ease) {
+  transition: #{$properties} $time $timing-function;
+}
+
+// Base styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  background-color: $bg-color;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    color: darken($primary-color, 10%);
+    @include transition(color);
+  }
+}
+
+button {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  @include transition(background-color);
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  padding: 0.5em;
+  border: 1px solid darken($bg-color, 10%);
+  border-radius: 4px;
+  width: 100%;
+  @include transition(border-color, box-shadow);
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 5px rgba($primary-color, 0.2);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+// Utility classes
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}

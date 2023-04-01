@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/indexer/casts",
+      "schedule": "* * * * *"
+    },
+    {
+      "path": "/api/indexer/users",
+      "schedule": "0 5 * * *"
+    }
+  ]
+}

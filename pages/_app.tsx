@@ -1,8 +1,19 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
+import { SWRConfig } from "swr";
+
+import "styles/index.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <SWRConfig
+      value={{
+        refreshInterval: 0,
+        fetcher: (resource: any, init: any) => fetch(resource, init).then((res) => res.json()),
+      }}
+    >
+      <Component {...pageProps} />
+    </SWRConfig>
+  );
 }
 
-export default MyApp
+export default MyApp;

@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model FarcasterUser {
+  fid              Int     @id @default(autoincrement())
+  username         String
+  displayName      String
+  connectedAddress String
+  bioText          String?
+  pfpUrl           String?
+  locationText     String?
+  locationPlaceId  String?
+  followerCount    Int     @default(0)
+  followingCount   Int     @default(0)
+  referrerUsername String?
+  recasts          Cast[]  @relation("Recasters")
+  casts            Cast[]  @relation("Casts")
+}
+
+model Cast {
+  hash       String          @id
+  threadHash String
+  parentHash String?
+  author     FarcasterUser   @relation(name: "Casts", fields: [authorFid], references: [fid])
+  authorFid  Int
+  text       String
+  timestamp  Float           @default(0)
+  replies    Int
+  reactions  Int
+  recasts    Int
+  watches    Int
+  recasters  FarcasterUser[] @relation("Recasters")
+}
