@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Header } from "components";
 
 import { useCasts } from "hooks";
 import { Cast, FarcasterUser } from "@prisma/client";
-import { getRelativeTime, shortenAddress } from "helpers";
+import { getRelativeTime } from "helpers";
 
 const Home: NextPage = () => {
   const { data = [] } = useCasts();
@@ -16,43 +17,31 @@ const Home: NextPage = () => {
         maxWidth: 640,
       }}
     >
-      <div className="row-fs-c" style={{ padding: "28px 0", gap: 8 }}>
-        <div className="col-c">
-          <h4 style={{ margin: 0 }}>Test Client: Purple DAO</h4>
-          <span style={{ opacity: 0.66 }}>{`Contract address: ${shortenAddress(
-            "0xa45662638e9f3bbb7a6fecb4b17853b7ba0f3a60"
-          )}`}</span>
-        </div>
-        <div />
-        <Link href="/">
-          <button>Casts</button>
-        </Link>
-        <Link href="/members">
-          <button>Members</button>
-        </Link>
-      </div>
+      <Header />
       <h1>Casts</h1>
       <div className="casts__list">
         {data.map(({ text, author, hash, timestamp }: Cast & { author: FarcasterUser }, index: number) => (
           <>
             <div className="casts__list__divider" key={`${hash}-${index}-divider`} />
-            <div key={`${hash}-${index}`} className="casts__list__row">
-              <Image
-                src={author?.pfpUrl ?? "/default.png"}
-                height={28}
-                width={28}
-                alt={author?.username}
-                className="members__list__avatar"
-              />
-              <div>
-                <div className="row" style={{ gap: 4 }}>
-                  <span className="casts__list__displayName">{author.displayName}</span>
-                  <span className="casts__list__username">@{author.username}</span>
-                  <span className="casts__list__username">• {getRelativeTime(timestamp)}</span>
+            <Link href={`farcaster://casts/${hash}`}>
+              <div key={`${hash}-${index}`} className="casts__list__row">
+                <Image
+                  src={author?.pfpUrl ?? "/default.png"}
+                  height={28}
+                  width={28}
+                  alt={author?.username}
+                  className="members__list__avatar"
+                />
+                <div>
+                  <div className="row" style={{ gap: 4 }}>
+                    <span className="casts__list__displayName">{author.displayName}</span>
+                    <span className="casts__list__username">@{author.username}</span>
+                    <span className="casts__list__username">• {getRelativeTime(timestamp)}</span>
+                  </div>
+                  <p>{text}</p>
                 </div>
-                <p>{text}</p>
               </div>
-            </div>
+            </Link>
           </>
         ))}
       </div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useMembers } from "hooks";
 import { FarcasterUser } from "@prisma/client";
 import { shortenAddress } from "helpers";
+import { Header } from "components";
 
 const Home: NextPage = () => {
   const { data = [] } = useMembers();
@@ -18,21 +19,7 @@ const Home: NextPage = () => {
         maxWidth: 640,
       }}
     >
-      <div className="row-fs-c" style={{ padding: "28px 0", gap: 8 }}>
-        <div className="col-c">
-          <h4 style={{ margin: 0 }}>Test Client: Purple DAO</h4>
-          <span style={{ opacity: 0.66 }}>{`Contract address: ${shortenAddress(
-            "0xa45662638e9f3bbb7a6fecb4b17853b7ba0f3a60"
-          )}`}</span>
-        </div>
-        <div />
-        <Link href="/">
-          <button>Casts</button>
-        </Link>
-        <Link href="/members">
-          <button>Members</button>
-        </Link>
-      </div>
+      <Header />
       <h1>Members</h1>
       <div className="members__list">
         {data.map(({ pfpUrl, fid, username, displayName }: FarcasterUser) => (

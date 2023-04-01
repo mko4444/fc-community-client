@@ -102,10 +102,14 @@ export async function getUserCasts(fid: number, timestampToStopAt: number = 0): 
           Authorization: `Bearer ${process.env.MERKLE_SECRET}`,
         },
       }).then(({ result, next }) => {
-        // const recentCasts = casts.filter(({ timestamp }) => timestamp > timestampToStopAt);
-        // const shouldStopHere = recentCasts.length !== casts.length;
+        // get the casts after timestampToStopAt
+        const recentCasts = casts.filter(({ timestamp }) => timestamp > timestampToStopAt);
+        // we stop here if we have a timestampToStopAt and the most recent cast in the list is greater than or equal to it
+        const shouldStopHere = recentCasts.length !== casts.length;
+        // add the new casts to the array of casts
         casts = casts.concat(result?.casts ?? []);
-        cursor = next?.cursor ?? null;
+        // if we should stop here, we set the curso r to null, otherwise we set it to the next cursor
+        cursor = shouldStopHere ? null : next?.cursor ?? null;
       });
       continue;
     } catch (err) {
