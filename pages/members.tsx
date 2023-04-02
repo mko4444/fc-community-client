@@ -1,46 +1,19 @@
-import type { NextPage } from "next";
-import Image from "next/image";
-import Link from "next/link";
-
+import { Header, Member, MemberProps } from "components";
 import { useMembers } from "hooks";
-import { FarcasterUser } from "@prisma/client";
-import { shortenAddress } from "helpers";
-import { Header } from "components";
 
-const Home: NextPage = () => {
-  const { data = [] } = useMembers();
-
-  console.log(data);
+export default function MembersPage(): JSX.Element {
+  const { data = [{}, {}, {}, {}, {}] } = useMembers();
 
   return (
-    <div
-      style={{
-        margin: "0 auto",
-        maxWidth: 640,
-      }}
-    >
+    <div className="container">
       <Header />
       <h1>Members</h1>
+      <div style={{ height: 12 }} />
       <div className="members__list">
-        {data.map(({ pfpUrl, fid, username, displayName }: FarcasterUser) => (
-          <div className="members__list__row" key={fid}>
-            <Image
-              width={28}
-              height={28}
-              src={pfpUrl ?? "/avatar.png"}
-              className="members__list__avatar"
-              alt={username}
-            />
-            <div />
-            <span className="members__list__displayName">{displayName}</span>
-            <span className="members__list__username">
-              @{username} • fid #{fid}
-            </span>
-          </div>
+        {data.map((m: MemberProps, i: number) => (
+          <Member {...m} key={i} />
         ))}
       </div>
     </div>
   );
-};
-
-export default Home;
+}

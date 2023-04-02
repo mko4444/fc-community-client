@@ -2,34 +2,5 @@
   &__list {
     @extend .col;
     gap: 12px;
-
-    &__row {
-      @extend .row;
-      cursor: pointer;
-      gap: 12px;
-
-      * {
-        pointer-events: none;
-      }
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-    &__displayName {
-      font-weight: 600;
-    }
-    &__username {
-      opacity: 0.66;
-    }
-    &__divider {
-      height: 1px;
-      width: 100%;
-      background-color: #e6e6e6;
-    }
-    p {
-      width: 100%;
-      margin: 0;
-    }
   }
 }

@@ -1,0 +1,87 @@
+.cast {
+  @extend .col;
+
+  cursor: pointer;
+  transition: all 150ms;
+  width: 100%;
+  padding: 8px 0;
+
+  p {
+    width: 100%;
+    margin: 4px 0;
+    pointer-events: none;
+  }
+  span {
+    pointer-events: none;
+    opacity: 0.66;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+  &.disableLinking {
+    cursor: default;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    grid-gap: 12px;
+    width: 100%;
+
+    &.hasTopBorder {
+      border-top: 1px solid #e6e6e6;
+      padding-top: 20px;
+    }
+  }
+  &__rail {
+    flex: 1;
+    width: 1px;
+    background: #e6e6e6;
+    margin-bottom: 10px;
+  }
+  &__author {
+    &:hover {
+      box-shadow: 0 1.25px 0 0 #e6e6e6;
+    }
+  }
+  &__displayName {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+  }
+  &__username {
+    opacity: 0.66;
+  }
+  &__divider {
+    height: 1px;
+    width: 100%;
+    background-color: #e6e6e6;
+  }
+  &__reactions {
+    @extend .row-fs-c;
+    margin-left: -8px;
+    gap: 8px;
+
+    button {
+      @extend .row-c-c;
+      gap: 8px;
+      background: transparent;
+      color: $text-color;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 8px;
+      margin: 0;
+      opacity: 0.66;
+      svg {
+        height: 14px;
+        width: 14px;
+        fill: $text-color;
+      }
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
