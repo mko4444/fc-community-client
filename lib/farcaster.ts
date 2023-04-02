@@ -298,6 +298,7 @@ export interface MerkleAuthor {
   };
   followerCount?: number;
   followingCount?: number;
+  referrerUsername?: string;
 }
 
 export interface MerkleNotif {
