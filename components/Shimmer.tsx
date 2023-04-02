@@ -10,7 +10,7 @@ export function Shimmer({
   return isLoading ? (
     <div className="shimmer-loader" style={{ flex: flex ? 1 : "none", width, height, borderRadius, margin }} />
   ) : (
-    children
+    <>{children}</>
   );
 }
 
