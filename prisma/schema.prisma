@@ -14,7 +14,7 @@ model FarcasterUser {
   fid              Int     @id @default(autoincrement())
   username         String
   displayName      String
-  connectedAddress String
+  connectedAddress String?
   bioText          String?
   pfpUrl           String?
   locationText     String?
