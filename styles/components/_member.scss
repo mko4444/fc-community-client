@@ -1,0 +1,21 @@
+.member {
+  @extend .row-fs-c;
+  cursor: pointer;
+  width: 100%;
+  gap: 6px;
+
+  * {
+    pointer-events: none;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+  &__avatar {
+    border-radius: 100px;
+  }
+  &__displayName {
+  }
+  &__username {
+    opacity: 0.66;
+  }
+}
