@@ -1,0 +1,16 @@
+.composer {
+  resize: none;
+  border-radius: 4px;
+  padding: 10px 12px;
+  border: 2px solid #e6e6e6;
+
+  &::placeholder {
+    color: $text-color;
+    opacity: 0.5;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: $primary-color;
+  }
+}

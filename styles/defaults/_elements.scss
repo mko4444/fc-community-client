@@ -65,6 +65,8 @@ a {
 }
 
 button {
+  @extend .row-c-c;
+
   font-family: $font-family;
   font-size: 15px;
   background-color: transparent;
@@ -75,6 +77,12 @@ button {
   transition: all 100ms;
   cursor: pointer;
   font-weight: 500;
+  gap: 8px;
+
+  svg {
+    height: 14px;
+    width: 14px;
+  }
 
   &:hover {
     background-color: #e6e6e675;

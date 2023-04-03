@@ -1,26 +1,40 @@
-import { Cast, CastProps, Page } from "components";
+import { Cast, CastProps, Page, Composer } from "components";
 import { useCasts } from "hooks";
+import { useState } from "react";
+import cn from "classnames";
 
 export default function HomePage(): JSX.Element {
+  const [tab, setTab] = useState<Tab>("relevant");
   const { data = [{}, {}, {}, {}, {}] } = useCasts();
 
   return (
     <Page
       className="casts__list"
       buttonRow={
-        <div className="row-sb-c" style={{ flex: 1 }}>
+        <div className="col" style={{ flex: 1, gap: 20 }}>
           <div className="row-fs-c" style={{ gap: 6 }}>
-            <button className="styled">Relevant</button>
-            <button>Following</button>
-            <button>Favorited</button>
+            {(["relevant", "following", "bookmarks"] as Tab[]).map((text: Tab) => (
+              <button
+                style={{ textTransform: "capitalize" }}
+                onClick={() => setTab(text)}
+                key={text}
+                className={cn({ styled: text === tab })}
+              >
+                {text}
+              </button>
+            ))}
           </div>
-          <button className="styled blue">Cast</button>
         </div>
       }
     >
+      <div style={{ height: 8 }} />
+      <Composer />
+      <div style={{ height: 20 }} />
       {data.map((c: CastProps, i: number) => (
-        <Cast hasTopBorder {...c} key={i} />
+        <Cast hasTopBorder={!!i} {...c} key={i} />
       ))}
     </Page>
   );
 }
+
+type Tab = "relevant" | "following" | "favorited";

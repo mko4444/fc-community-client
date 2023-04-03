@@ -25,14 +25,14 @@ export function Cast({ disableLinking, hasRail = false, hasTopBorder = false, in
   return (
     <Link
       className={cn(["cast", { disableLinking }])}
-      href={`/casts/${props.hash}`}
+      href={`/${props.hash}`}
       onClick={(e) => disableLinking && e.preventDefault()}
       style={{ paddingLeft: `${indent * 40}px` }}
     >
       <div className={cn(["cast__grid", { hasTopBorder }])}>
         <div className="col-fs-c">
           <Shimmer height={36} width={36} isLoading={!props.author?.pfpUrl} borderRadius={100}>
-            <Link href={`/users/${props.author?.username}`}>
+            <Link href={`/u/${props.author?.username}`}>
               <Image
                 alt=""
                 src={props.author?.pfpUrl ?? "/default.png"}
@@ -46,7 +46,7 @@ export function Cast({ disableLinking, hasRail = false, hasTopBorder = false, in
         </div>
         <div className="col" style={{ flex: 1 }}>
           <Shimmer isLoading={!props.author?.displayName} width="100%" height={16} margin="0 0 8px 0">
-            <Link href={`/users/${props.author?.username}`} className="cast__author row" style={{ gap: 4 }}>
+            <Link href={`/u/${props.author?.username}`} className="cast__author row" style={{ gap: 4 }}>
               <h4 className="casts__list__displayName">{props.author?.displayName}</h4>
               <span className="casts__list__username">@{props.author?.username}</span>
               <span className="casts__list__username">• {getRelativeTime(props?.timestamp)}</span>
@@ -55,7 +55,7 @@ export function Cast({ disableLinking, hasRail = false, hasTopBorder = false, in
           <Shimmer isLoading={!props.text} width="100%" height={48}>
             <p>{props.text}</p>
           </Shimmer>
-          <Shimmer isLoading={!props.text} width="100%" height={16} margin="8px 0 0 0">
+          {props?.hash && (
             <div className="cast__reactions">
               <button onClick={onReply}>
                 {reply} {props?.replies}
@@ -70,7 +70,7 @@ export function Cast({ disableLinking, hasRail = false, hasTopBorder = false, in
                 {watch} {props?.watches}
               </button>
             </div>
-          </Shimmer>
+          )}
         </div>
       </div>
     </Link>

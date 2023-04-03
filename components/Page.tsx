@@ -16,15 +16,7 @@ export function Page({
         <Header />
       </div>
       <div className={cn(["page__inner", className])}>
-        <div
-          className="row-fs-c"
-          style={{
-            padding: "12px 0",
-            gap: 6,
-          }}
-        >
-          {buttonRow}
-        </div>
+        <div className="page__navbar row-fs-c">{buttonRow}</div>
         {children}
       </div>
     </div>

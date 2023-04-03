@@ -12,7 +12,7 @@ export function Header() {
   return (
     <div className="header">
       <div className="col-c">
-        <span className="row-fs-c" style={{ gap: 20, padding: "4px 14px" }}>
+        <span className="row-fs-c" style={{ gap: 40, padding: "4px 14px" }}>
           <Image
             height={28}
             width={28}
@@ -31,7 +31,7 @@ export function Header() {
           </div>
         </span>
       </div>
-      <div className="col" style={{ gap: 6, paddingLeft: 48 }}>
+      <div className="col" style={{ gap: 6, paddingLeft: 68 }}>
         <Link href="/">
           <button className={cn({ styled: pathname === "/" })}>Home</button>
         </Link>

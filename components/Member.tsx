@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function Member(props: MemberProps) {
   return (
-    <Link className="member" href={`/users/${props.username}`}>
+    <Link className="member" href={`/u/${props.username}`}>
       <Shimmer isLoading={!props?.pfpUrl} height={28} width={28} borderRadius={100}>
         <Image
           width={28}

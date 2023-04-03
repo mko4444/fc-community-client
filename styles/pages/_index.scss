@@ -1,12 +1,16 @@
-@import "members", "casts";
+@import "members";
 
 .page {
   display: grid;
   grid-template-columns: 1fr 540px 1fr;
-  padding-top: 2;
   grid-gap: 20px;
 
-  &__inner {
-    padding-top: 12px;
+  &__navbar {
+    position: sticky;
+    padding: 24px 0 12px 0;
+    top: 0;
+    gap: 6px;
+    background: white;
+    z-index: 999;
   }
 }
