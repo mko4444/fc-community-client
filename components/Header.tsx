@@ -1,5 +1,3 @@
-import { shortenAddress } from "helpers";
-
 import Image from "next/image";
 import Link from "next/link";
 import cn from "classnames";
@@ -7,7 +5,7 @@ import { useRouter } from "next/router";
 
 export function Header() {
   const { pathname } = useRouter();
-  const contract = process.env.CONTRACT_ADDRESS ?? "0xa45662638e9f3bbb7a6fecb4b17853b7ba0f3a60";
+  // const contract = process.env.CONTRACT_ADDRESS ?? "0xa45662638e9f3bbb7a6fecb4b17853b7ba0f3a60";
 
   return (
     <div className="header">
@@ -20,7 +18,7 @@ export function Header() {
             alt="NFTD"
             style={{ borderRadius: 100 }}
           />
-          <div className="header__panel col" style={{ gap: 4 }}>
+          <div className="header__panelcol" style={{ gap: 4 }}>
             <span className="header__title">NFTD</span>
             <Link
               className="header__address"
