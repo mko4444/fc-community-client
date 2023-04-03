@@ -1,6 +1,9 @@
 .casts {
   &__list {
-    @extend .col;
-    gap: 12px;
+    .cast__grid {
+      :first-child {
+        border-top: none;
+      }
+    }
   }
 }

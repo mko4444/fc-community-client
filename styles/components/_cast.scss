@@ -9,6 +9,7 @@
   p {
     width: 100%;
     margin: 4px 0;
+    font-size: 15px;
     pointer-events: none;
   }
   span {
@@ -26,7 +27,7 @@
   }
   &__grid {
     display: grid;
-    grid-template-columns: 28px 1fr;
+    grid-template-columns: 36px 1fr;
     grid-gap: 12px;
     width: 100%;
 

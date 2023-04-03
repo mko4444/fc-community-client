@@ -1,19 +1,26 @@
-import { Header, Member, MemberProps } from "components";
+import { Member, MemberProps, Page } from "components";
 import { useMembers } from "hooks";
 
 export default function MembersPage(): JSX.Element {
-  const { data = [{}, {}, {}, {}, {}] } = useMembers();
+  const { data = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}] } = useMembers();
 
   return (
-    <div className="container">
-      <Header />
-      <h1>Members</h1>
+    <Page
+      buttonRow={
+        <>
+          <button className="styled">Relevant</button>
+          <button>Following</button>
+          <button>Followers</button>
+        </>
+      }
+    >
+      <div className="divider" style={{ margin: "8px 0" }} />
       <div style={{ height: 12 }} />
       <div className="members__list">
         {data.map((m: MemberProps, i: number) => (
           <Member {...m} key={i} />
         ))}
       </div>
-    </div>
+    </Page>
   );
 }

@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/api/indexer/casts",
-      "schedule": "* * * * *"
+      "schedule": "0 5 * * *"
     },
     {
       "path": "/api/indexer/users",

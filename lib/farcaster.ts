@@ -28,7 +28,7 @@ export async function getConnectedUser(address: string) {
  */
 export async function getAllUsers({
   includeVerifications,
-  fidToStopAt,
+  fidToStopAt = 0,
 }: {
   includeVerifications?: boolean;
   fidToStopAt: number;

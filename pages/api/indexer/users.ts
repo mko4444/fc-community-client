@@ -1,5 +1,6 @@
 import { getAllUsers } from "lib/farcaster";
 import prisma from "lib/prisma";
+import { NextApiRequest, NextApiResponse } from "next";
 
 const fetcher = async (url: string, options: any) => {
   const res = await fetch(url, options);
@@ -7,7 +8,8 @@ const fetcher = async (url: string, options: any) => {
   return result;
 };
 
-export default async function users({ query: { address } }: any, res: any) {
+export default async function users(_: NextApiRequest, res: NextApiResponse) {
+  const address = process.env.CONTRACT_ADDRESS as string;
   // get the most recent user's FID so we don't have to re-index everything
   const mostRecentUser = await prisma.farcasterUser.findFirst({
     orderBy: { fid: "desc" },

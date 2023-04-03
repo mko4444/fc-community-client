@@ -1,6 +1,6 @@
 export function Shimmer({
-  width = "100%",
-  height = "20px",
+  width = "auto",
+  height = "auto",
   flex = false,
   borderRadius = 4,
   margin = 0,

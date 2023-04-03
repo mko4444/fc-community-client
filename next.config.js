@@ -5,6 +5,7 @@ const nextConfig = {
   env: {
     MERKLE_SECRET: process.env.MERKLE_SECRET,
     SIMPLEHASH_KEY: process.env.SIMPLEHASH_KEY,
+    CONTRACT_ADDRESS: process.env.CONTRACT_ADDRESS,
   },
   images: {
     remotePatterns: [

@@ -5,7 +5,7 @@ import { useThread } from "hooks";
 import { useRouter } from "next/router";
 
 export default function CastPage() {
-  const { query } = useRouter();
+  const { query, back } = useRouter();
   const hash = (query?.hash as string) ?? undefined;
   const { data = [{}] } = useThread(hash);
   // get the parent thread
@@ -20,17 +20,24 @@ export default function CastPage() {
   ] = [convo.slice(0, index), convo[index], convo.slice(index + 1)];
 
   return (
-    <div className="container">
-      <Header />
-      <h1>Thread</h1>
-      <div style={{ height: 12 }} />
-      {parents.map((c: CastProps, i: number) => (
-        <Cast hasRail {...c} key={i} />
-      ))}
-      <Cast disableLinking {...cast} />
-      {children.map((c: CastProps, i: number) => (
-        <Cast hasTopBorder indent={1} {...c} key={i} />
-      ))}
+    <div className="page">
+      <div style={{ width: "100%" }} className="col-fs-fe">
+        <Header />
+      </div>
+      <div className="page__inner">
+        <div className="row-fs-c">
+          <button onClick={back}>←</button>
+          <h1>Thread</h1>
+        </div>
+        <div style={{ height: 28 }} />
+        {parents.map((c: CastProps, i: number) => (
+          <Cast hasRail {...c} key={i} />
+        ))}
+        <Cast disableLinking {...cast} />
+        {children.map((c: CastProps, i: number) => (
+          <Cast hasTopBorder indent={1} {...c} key={i} />
+        ))}
+      </div>
     </div>
   );
 }

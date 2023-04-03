@@ -31,13 +31,13 @@ export function Cast({ disableLinking, hasRail = false, hasTopBorder = false, in
     >
       <div className={cn(["cast__grid", { hasTopBorder }])}>
         <div className="col-fs-c">
-          <Shimmer isLoading={!props.author?.pfpUrl} height={28} width={28} borderRadius={100}>
+          <Shimmer isLoading={!props.author?.pfpUrl} borderRadius={100}>
             <Link href={`/users/${props.author?.username}`}>
               <Image
                 alt=""
                 src={props.author?.pfpUrl ?? "/default.png"}
-                height={28}
-                width={28}
+                height={36}
+                width={36}
                 className="member__avatar"
               />
             </Link>

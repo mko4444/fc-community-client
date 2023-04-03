@@ -17,7 +17,7 @@ export function Member(props: MemberProps) {
         />
       </Shimmer>
       <div />
-      <Shimmer isLoading={!props?.displayName} width="100%" height={20}>
+      <Shimmer isLoading={!props?.displayName} width={200} height={20}>
         <span className="member__displayName">{props.displayName}</span>
         <span className="member__username">
           @{props.username} • fid #{props.fid}

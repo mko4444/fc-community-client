@@ -1,5 +1,7 @@
+// https://fonts.google.com/specimen/Inter
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
 // Variables
-$font-family: --apple-system, sans-serif;
+$font-family: Inter, --apple-system, sans-serif;
 $font-size-base: 16px;
 $primary-color: #3498db;
 $secondary-color: #2ecc71;
@@ -9,6 +11,16 @@ $text-color: #2c3e50;
 // Mixins
 @mixin transition($properties, $time: 300ms, $timing-function: ease) {
   transition: #{$properties} $time $timing-function;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
 }
 
 // Base styles
@@ -26,6 +38,11 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 1;
 }
 
 h1,
@@ -49,17 +66,22 @@ a {
 
 button {
   font-family: $font-family;
-  font-size: $font-size-base;
-  background-color: $primary-color;
-  color: #fff;
-  border: none;
+  font-size: 15px;
+  background-color: transparent;
+  color: $text-color;
   border-radius: 4px;
   padding: 0.5em 1em;
+  border: none;
+  transition: all 100ms;
   cursor: pointer;
-  @include transition(background-color);
+  font-weight: 500;
 
   &:hover {
-    background-color: darken($primary-color, 10%);
+    background-color: #e6e6e675;
+  }
+
+  &.styled {
+    background-color: #e6e6e675;
   }
 }
 
@@ -94,4 +116,10 @@ textarea {
 
 .text-right {
   text-align: right;
+}
+
+.divider {
+  height: 1px;
+  background: #e6e6e6;
+  width: 100%;
 }
