@@ -15,9 +15,12 @@ export function Page({
       <div style={{ width: "100%" }} className="col-fs-fe">
         <Header />
       </div>
-      <div className={cn(["page__inner", className])}>
-        <div className="page__navbar row-fs-c">{buttonRow}</div>
-        {children}
+      <div>
+        <div className={cn(["page__inner", className])}>
+          <div className="page__navbar row-fs-c">{buttonRow}</div>
+          <div className="divider" style={{ margin: "8px 0" }} />
+          {children}
+        </div>
       </div>
     </div>
   );

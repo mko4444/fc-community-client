@@ -7,14 +7,13 @@ export default function MembersPage(): JSX.Element {
   return (
     <Page
       buttonRow={
-        <>
+        <div className="row-fs-c" style={{ width: "100%", gap: 6 }}>
           <button className="styled">Trending</button>
           <button>Recent</button>
-        </>
+        </div>
       }
     >
-      <div className="divider" style={{ margin: "8px 0" }} />
-      <div style={{ height: 12 }} />
+      <div style={{ height: 16 }} />
       <div className="members__list">
         {data.map((m: MemberProps, i: number) => (
           <Member {...m} key={i} />

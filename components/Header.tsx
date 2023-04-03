@@ -20,13 +20,14 @@ export function Header() {
             alt="NFTD"
             style={{ borderRadius: 100 }}
           />
-          <div className="col" style={{ gap: 4 }}>
+          <div className="header__panel col" style={{ gap: 4 }}>
             <span className="header__title">NFTD</span>
             <Link
               className="header__address"
               href="https://etherscan.io/address/0xaD08067C7d3D3DbC14A9df8D671FF2565fC5A1aE"
             >
-              {shortenAddress(contract)}
+              Copy Address
+              {/* {shortenAddress(contract)} */}
             </Link>
           </div>
         </span>

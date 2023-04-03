@@ -32,8 +32,7 @@ export default function CastPage() {
         </div>
       }
     >
-      <div className="divider" style={{ margin: "8px 0" }} />
-      <div style={{ height: 12 }} />
+      <div style={{ height: 8 }} />
       {parents.map((c: CastProps, i: number) => (
         <Cast hasRail {...c} key={i} />
       ))}

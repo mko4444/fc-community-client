@@ -20,4 +20,17 @@
     line-height: 1;
     opacity: 0.66;
   }
+  &__panel {
+    a {
+      transition: all 100ms;
+      height: 0;
+      opacity: 0;
+    }
+    &:hover {
+      a {
+        height: 12px;
+        opacity: 1;
+      }
+    }
+  }
 }
