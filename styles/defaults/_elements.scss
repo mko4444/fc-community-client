@@ -83,6 +83,14 @@ button {
   &.styled {
     background-color: #e6e6e675;
   }
+  &.blue {
+    background-color: #3498db;
+    color: white;
+
+    &:hover {
+      background-color: #3498dbe1;
+    }
+  }
 }
 
 input[type="text"],

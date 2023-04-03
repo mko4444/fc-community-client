@@ -8,9 +8,8 @@ export default function MembersPage(): JSX.Element {
     <Page
       buttonRow={
         <>
-          <button className="styled">Relevant</button>
-          <button>Following</button>
-          <button>Followers</button>
+          <button className="styled">Trending</button>
+          <button>Recent</button>
         </>
       }
     >

@@ -20,7 +20,7 @@ export function Page({
           className="row-fs-c"
           style={{
             padding: "12px 0",
-            gap: 4,
+            gap: 6,
           }}
         >
           {buttonRow}

@@ -31,7 +31,7 @@ export function Cast({ disableLinking, hasRail = false, hasTopBorder = false, in
     >
       <div className={cn(["cast__grid", { hasTopBorder }])}>
         <div className="col-fs-c">
-          <Shimmer isLoading={!props.author?.pfpUrl} borderRadius={100}>
+          <Shimmer height={36} width={36} isLoading={!props.author?.pfpUrl} borderRadius={100}>
             <Link href={`/users/${props.author?.username}`}>
               <Image
                 alt=""

@@ -31,7 +31,7 @@ export function Header() {
           </div>
         </span>
       </div>
-      <div className="col" style={{ gap: 8, paddingLeft: 48 }}>
+      <div className="col" style={{ gap: 6, paddingLeft: 48 }}>
         <Link href="/">
           <button className={cn({ styled: pathname === "/" })}>Home</button>
         </Link>
