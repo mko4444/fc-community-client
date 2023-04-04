@@ -30,7 +30,7 @@ export default function CastPage() {
                 fontFamily: "Inter",
               }}
             >
-              ←
+              {arrow}
             </button>
             <div style={{}} />
             {/* {(["relevant", "following", "bookmarks"] as Tab[]).map((text: Tab) => (
