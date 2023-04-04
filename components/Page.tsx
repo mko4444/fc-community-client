@@ -1,5 +1,4 @@
 import { Header } from "components";
-import cn from "classnames";
 
 export function Page({
   className,
@@ -16,9 +15,8 @@ export function Page({
         <Header />
       </div>
       <div>
-        <div className={cn(["page__inner", className])}>
-          <div className="page__navbar row-fs-c">{buttonRow}</div>
-          <div className="divider" style={{ margin: "8px 0" }} />
+        <div className={className}>
+          {buttonRow ? <div className="page__navbar row-fs-c">{buttonRow}</div> : <div style={{ height: 20 }} />}
           {children}
         </div>
       </div>

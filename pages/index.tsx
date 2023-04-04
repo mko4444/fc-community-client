@@ -27,11 +27,12 @@ export default function HomePage(): JSX.Element {
         </div>
       }
     >
-      <div style={{ height: 8 }} />
       <Composer />
-      <div style={{ height: 20 }} />
+      <div style={{ height: 6 }} />
+      <div className="divider" />
+      <div style={{ height: 12 }} />
       {data.map((c: CastProps, i: number) => (
-        <Cast hasTopBorder={!!i} {...c} key={i} />
+        <Cast {...c} key={i} />
       ))}
     </Page>
   );

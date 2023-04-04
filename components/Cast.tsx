@@ -27,7 +27,7 @@ export function Cast({ disableLinking, hasRail = false, hasTopBorder = false, in
       className={cn(["cast", { disableLinking }])}
       href={`/${props.hash}`}
       onClick={(e) => disableLinking && e.preventDefault()}
-      style={{ paddingLeft: `${indent * 40}px` }}
+      style={{ paddingLeft: `${indent * 46}px` }}
     >
       <div className={cn(["cast__grid", { hasTopBorder }])}>
         <div className="col-fs-c">
@@ -36,8 +36,8 @@ export function Cast({ disableLinking, hasRail = false, hasTopBorder = false, in
               <Image
                 alt=""
                 src={props.author?.pfpUrl ?? "/default.png"}
-                height={36}
-                width={36}
+                height={28}
+                width={28}
                 className="member__avatar"
               />
             </Link>

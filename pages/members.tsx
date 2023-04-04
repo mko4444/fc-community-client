@@ -13,7 +13,6 @@ export default function MembersPage(): JSX.Element {
         </div>
       }
     >
-      <div style={{ height: 16 }} />
       <div className="members__list">
         {data.map((m: MemberProps, i: number) => (
           <Member {...m} key={i} />

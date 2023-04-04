@@ -1,11 +1,16 @@
 .composer {
   resize: none;
-  border-radius: 4px;
+  border-radius: 9px;
   padding: 10px 12px;
-  border: 2px solid #e6e6e6;
+  border: 1px solid #e6e6e6;
+  font-weight: 400;
+  font-size: 15px;
+  color: $text-color;
 
   &::placeholder {
     color: $text-color;
+    font-weight: 400;
+    font-size: 15px;
     opacity: 0.5;
   }
   &:focus {

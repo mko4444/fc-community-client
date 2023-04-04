@@ -72,7 +72,8 @@ button {
   background-color: transparent;
   color: $text-color;
   border-radius: 4px;
-  padding: 0.5em 1em;
+  padding: 8px 12px;
+  user-select: none;
   border: none;
   transition: all 100ms;
   cursor: pointer;

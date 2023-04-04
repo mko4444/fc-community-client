@@ -24,26 +24,44 @@ export default function CastPage() {
       buttonRow={
         <div className="col" style={{ flex: 1, gap: 20 }}>
           <div className="row-fs-c" style={{ gap: 6 }}>
-            <button onClick={back} className="styled">
-              {arrow}
-              Back
+            <button
+              onClick={back}
+              style={{
+                fontFamily: "Inter",
+              }}
+            >
+              ←
             </button>
+            <div style={{}} />
+            {/* {(["relevant", "following", "bookmarks"] as Tab[]).map((text: Tab) => (
+              <button
+                style={{ textTransform: "capitalize" }}
+                onClick={() => setTab(text)}
+                key={text}
+                className={cn({ styled: text === tab })}
+              >
+                {text}
+              </button>
+            ))} */}
+            <label style={{ fontWeight: 600 }}>Cast</label>
           </div>
         </div>
       }
     >
-      <div style={{ height: 8 }} />
       {parents.map((c: CastProps, i: number) => (
         <Cast hasRail {...c} key={i} />
       ))}
       <Cast disableLinking {...cast} />
-      <div style={{ paddingLeft: 48 }}>
-        <div className="divider" style={{ margin: "8px 0" }} />
-        <div style={{ height: 6 }} />
+      <div style={{ paddingLeft: 58 }}>
+        <div className="divider" />
+        <div style={{ height: 12 }} />
         <Composer placeholder="Start typing your reply here..." />
+        <div style={{ height: 8 }} />
+        <div className="divider" />
+        <div style={{ height: 12 }} />
       </div>
       {children.map((c: CastProps, i: number) => (
-        <Cast hasTopBorder indent={1} {...c} key={i} />
+        <Cast hasTopBorder={!!i} indent={1} {...c} key={i} />
       ))}
     </Page>
   );
